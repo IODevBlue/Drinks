@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation.xml"
+    app:startDestination="@id/allDrinksFragment">
+
+    <fragment
+        android:id="@+id/allDrinksFragment"
+        android:name="com.tutorial.drinks.AllDrinksFragment"
+        android:label="Drinks"
+        tools:layout="@layout/fragment_all_drinks">
+        <action
+            android:id="@+id/action_allDrinksFragment_to_drinkDetailsFragment"
+            app:destination="@id/drinkDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchDrinksFragment"
+        android:name="com.tutorial.drinks.SearchDrinksFragment"
+        android:label="Search Drink"
+        tools:layout="@layout/fragment_search_drinks">
+        <action
+            android:id="@+id/action_searchDrinksFragment_to_drinkDetailsFragment"
+            app:destination="@id/drinkDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/categoryFragment"
+        android:name="com.tutorial.drinks.DrinkCategoryFragment"
+        android:label="Drink Category"
+        tools:layout="@layout/fragment_category">
+        <action
+            android:id="@+id/action_categoryFragment_to_drinksByCategoryFragment"
+            app:destination="@id/drinksByCategoryFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinkDetailsFragment"
+        android:name="com.tutorial.drinks.DrinkDetailsFragment"
+        android:label="Drink Detail"
+        tools:layout="@layout/fragment_drink_details">
+        <argument
+            android:name="drinksId"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/drinksByCategoryFragment"
+        android:label="{categoryId}"
+        android:name="com.tutorial.drinks.DrinksByCategoryFragment"
+        tools:layout="@layout/fragment_drinks_by_category">
+        <argument
+            android:name="categoryId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_drinksByCategoryFragment_to_drinkDetailsFragment"
+            app:destination="@id/drinkDetailsFragment" />
+    </fragment>
+</navigation>
